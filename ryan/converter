@@ -1,0 +1,38 @@
+Python 3.11.2 (/usr/bin/python3)
+>>> # 05_01_converter
+class ScaleConverter:
+
+    def __init__(self, units_from, units_to, factor):
+        self.units_from = units_from
+        self.units_to = units_to
+        self.factor = factor
+
+    def description(self):
+        return "Convert " + self.units_from + " to " + self.units_to
+
+    def convert(self, value):
+        return value * self.factor
+
+
+c1 = ScaleConverter("inches", "mm", 25)
+print(c1.description())
+print("converting 2 inches")
+print(str(c1.convert(2)) + c1.units_to)
+
+Convert inches to mm
+converting 2 inches
+50mm
+>>> c2 = scaleconverter('feet', 'yards', 0.333)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'scaleconverter' is not defined
+>>> c2 = scaleConverter('feet', 'yards', 0.333)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'scaleConverter' is not defined
+>>> c2 = ScaleConverter('feet', 'yards', 0.333)
+>>> print(str(c2.convert(3)) + c2.units_to)
+0.9990000000000001yards
+>>> print(str(c2.convert(10)) + c2.units_to)
+3.33yards
+>>> 
