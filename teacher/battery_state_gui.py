@@ -2,6 +2,7 @@ import os
 import sys
 import time
 from guizero import App, Text
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
 
 from sphero_sdk import SpheroRvrObserver
@@ -14,26 +15,24 @@ voltage_states = ''
 battery_percentage_out = ''
 
 def battery_percentage_handler(battery_percentage):
-    
     global battery_percentage_out
-    battery_percentage_out = battery_percentage
+    battery_percentage_out = batter_battery_percentage
+ 
 
 
 def battery_voltage_handler(battery_voltage_state):
-    
     global voltage_state
     voltage_state = battery_voltage_state
     global state_info
-
     state_info = '[{}, {}, {}, {}]'.format(
         '{}: {}'.format(VoltageStates.unknown.name, VoltageStates.unknown.value),
         '{}: {}'.format(VoltageStates.ok.name, VoltageStates.ok.value),
         '{}: {}'.format(VoltageStates.low.name, VoltageStates.low.value),
         '{}: {}'.format(VoltageStates.critical.name, VoltageStates.critical.value)
     )
-    
     global voltage_states
-    voltage_states = 'voltage states: ' + state_info
+    voltage_states = 'Voltage states: ' + state_info
+
 
 
 def main():
@@ -56,7 +55,6 @@ def main():
         # Sleep for one second such that RVR has time to send data back
         time.sleep(1)
         Text(app, text="Battery Percentage " + str(battery_percentage_out['percentage']))
- #     Text(app, text="Battery Percentage " + str(battery_percentage_out['percentage']))
         Text(app, text="Voltage State " + str(voltage_state['state']))
         Text(app, text=voltage_states)
         app.display()
@@ -70,3 +68,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
