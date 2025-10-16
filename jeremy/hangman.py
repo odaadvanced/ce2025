@@ -1,7 +1,8 @@
-import random
-words = ['chicken', 'dog', 'cat', 'mouse', 'frog']
+# 07_01_hello.py
 
-def pick_a_word():
-    return random.choice(words)
+from guizero import App, Text
 
-print(pick_a_word())
+app = App()
+Text(app, text="Hello World Jeremy")
+app.display()
+print('bye')
