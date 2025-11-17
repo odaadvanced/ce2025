@@ -5,7 +5,7 @@ from gpiozero import Button
 from gpiozero import LED
 from signal import pause
 import time
-# Maak Button op GPIO18 (BCM)
+# Uses BCM
 LedPin = 17 # Set GPIO17 as LED pin
 BtnPin = 18 # Set GPIO18 as button pin
 
