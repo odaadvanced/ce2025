@@ -8,6 +8,13 @@ from sphero_sdk import SpheroRvrObserver
 from sphero_sdk import DriveFlagsBitmask
 from guizero import App, Text
 
+# Initialize the dht device, with data pin connected to:
+dhtDevice = adafruit_dht.DHT11(board.D19)
+
+#create rvr object
+rvr = SpheroRvrObserver()
+
+#read and display the temperature
 def update_temp():
     try:
         # Print the values to the serial port
@@ -41,17 +48,8 @@ def update_temp():
         print(error.args[0])
         temp_text.after(2000, update_temp) # Used to update the temperature reading
 
-        
-
-
-    
  
-
-# Initial the dht device, with data pin connected to:
-dhtDevice = adafruit_dht.DHT11(board.D19)
-
-rvr = SpheroRvrObserver()
-
+#clean up when the window is closed
 def on_close():
     print ('App is closing')
     dhtDevice.exit()
@@ -61,11 +59,12 @@ def on_close():
             
 def main():
     global temp_text, app
+    print ('robot program started')
     rvr.wake()
 # Give RVR time to wake up
     time.sleep(2)
     rvr.reset_yaw()
-    app = App(title = "Thermometer", width="400", height="300")
+    app = App(title = "Thermometer", width="500", height="300")
     Text(app, text="Temp F", size=32)
     temp_text = Text(app, text="0.00", size=110)
     temp_text.after(2000, update_temp) # Used to update the temperature reading
