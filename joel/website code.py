@@ -1,0 +1,67 @@
+from gpiozero import TrafficLights, Button
+from time import sleep
+
+from oled_io import Oled_io
+
+display = Oled_io()
+
+
+button = Button(24)
+lights = TrafficLights(27, 22, 17)
+
+
+while True:
+    if button.is_pressed:
+        lights.green.on()
+        lights.red.off()
+        display.print("may cross 15")
+        sleep(1)
+        display.print("may cross 14")
+        sleep(1)
+        display.print("may cross 13")
+        sleep(1)
+        display.print("may cross 12")
+        sleep(1)
+        display.print("may cross 11")
+        sleep(1)
+        display.print("may cross 10")
+        sleep(1)
+        display.print("may cross 9")
+        sleep(1)
+        display.print("may cross 8")
+        sleep(1)
+        display.print("may cross 7")
+        sleep(1)
+        display.print("may cross 6")
+        sleep(1)
+        display.print("may cross 5")
+        sleep(1)
+        display.print("may cross 4")
+        sleep(1)
+        display.print("may cross 3")
+        sleep(1)
+        display.print("may cross 2")
+        sleep(1)
+        display.print("may cross 1")
+        sleep(1)
+        lights.amber.on()
+        lights.green.off()
+        display.print("dont cross 5")
+        sleep(1)
+        display.print("dont cross 4")
+        sleep(1)
+        display.print("dont cross 3")
+        sleep(1)
+        display.print("dont cross 2")
+        sleep(1)
+        display.print("dont cross 1")
+        sleep(1)
+        lights.red.on()
+        lights.amber.off()
+        sleep(1)
+        lights.off()
+    else:
+        lights.red.on()
+        lights.amber.off()
+        lights.green.off()
+        display.print("dont cross")
