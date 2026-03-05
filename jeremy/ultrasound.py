@@ -9,6 +9,10 @@ from sphero_sdk import SpheroRvrAsync
 from sphero_sdk import SerialAsyncDal
 import time
 
+Buzzer = 17
+
+
+
 loop = asyncio.get_event_loop()
 rvr = SpheroRvrAsync(
     dal=SerialAsyncDal(
@@ -17,6 +21,9 @@ rvr = SpheroRvrAsync(
     )
 GPIO.setmode(GPIO.BCM)
 
+GPIO.setup(Buzzer, GPIO.OUT)
+global Buzz
+Buzz = GPIO.PWM(Buzzer, 440)
 right_trigger = 20
 right_echo = 21
 left_trigger = 23
@@ -76,12 +83,22 @@ async def main():
         dist_l = distance_left()
         await asyncio.sleep(.05)
         print('Measurements are {0} cm right and {1} cm left'.format(dist_r, dist_l))
+        if dist_r >= 200 or dist_l >= 200:
+            await rvr.led_control.set_all_leds_rgb(red=0, green=255, blue=0)
+        elif dist_r >= 100 or dist_l >= 100:
+            await rvr.led_control.set_all_leds_rgb(red=255, green=255, blue=0)
+        elif dist_r >= 35 or dist_l >= 35:
+            await rvr.led_control.set_all_leds_rgb(red=255, green=100, blue=0)
+            
         if dist_r < 35:
             while dist_r < 35:
                 await rvr.raw_motors(2,125,1,125)
                 dist_r = distance_right()
                 await asyncio.sleep(.05)
                 print('turning right')
+                await rvr.led_control.set_all_leds_rgb(red=255, green=0, blue=0)
+                Buzz.start(50)
+            Buzz.stop()
             await rvr.reset_yaw()
         elif dist_l < 35:
             while dist_l < 35:
@@ -89,6 +106,9 @@ async def main():
                 dist_l = distance_left()
                 await asyncio.sleep(.05)
                 print('turning left')
+                await rvr.led_control.set_all_leds_rgb(red=255, green=0, blue=0)
+                Buzz.start(50)
+            Buzz.stop()
             await rvr.reset_yaw()
         elif dist_l >= 35 and dist_r >= 35:
             await rvr.drive_with_heading(50,0,0)
@@ -101,4 +121,5 @@ try:
         )
 except KeyboardInterrupt:
     print('Program ended by KeyboardInterrupt')
+    Buzz.stop()
     GPIO.cleanup()
