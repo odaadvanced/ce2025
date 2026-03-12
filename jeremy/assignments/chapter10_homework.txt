@@ -1,0 +1,230 @@
+Git Requirement
+
+Save all programming work in your existing Git repository.
+
+What to do
+	1.	Open the Git repository you already use for class.
+	2.	Create a folder for this assignment.
+
+mkdir inheritance_assignment
+
+	3.	Save your Python files in that folder.
+	4.	Add and commit your work after each exercise.
+
+Example:Part 2: Warm-Up Questions
+
+Answer these questions.
+	1.	What is the difference between a class and an object?
+	2.	Why is inheritance useful in programming?
+	3.	What does self mean inside a Python class?
+	4.	What happens when a child class inherits from a parent class?
+Part 3: Read the Example
+
+Study this program.
+class Animal:
+    def __init__(self, name, sound):
+        self.name = name
+        self.sound = sound
+
+    def speak(self):
+        print(self.name + " says " + self.sound)
+
+
+class Dog(Animal):
+    def fetch(self):
+        print(self.name + " is fetching a ball.")
+
+
+pet1 = Animal("Creature", "???")
+pet2 = Dog("Buddy", "Woof")
+
+pet1.speak()
+pet2.speak()
+pet2.fetch()
+
+Questions
+	1.	What is the name of the parent class?
+	2.	What is the name of the child class?
+	3.	Which attributes does Dog inherit from Animal?
+	4.	Which method does Dog inherit from Animal?
+	5.	Which method belongs only to Dog?
+	6.	What will the program print?
+	
+Part 4: Coding Practice
+
+For each exercise:
+	•	write the program in Python
+	•	test it
+	•	save it in your existing Git repository
+	•	commit your work after completing each exercise
+
+Exercise 1: Create a Class
+
+Create a class called Book.
+
+Requirements:
+	•	attributes: title, author, pages
+	•	method: describe() that prints information about the book
+	
+Example output:
+
+Title: Hatchet, Author: Gary Paulsen, Pages: 195
+
+After writing the class:
+	•	create two Book objects
+	•	call describe() for both objects
+
+Suggested file name:
+
+book_class.py
+
+Questions
+	1.	What is the class name? Book
+	2.	What are the attributes? title, author, and pages
+	3.	How many objects did you create? 2
+
+Exercise 2: Create a Parent and Child Class
+
+Create a parent class called Vehicle.
+
+Requirements:
+	•	attributes: brand, speed
+	•	method: show_info() that prints the brand and speed
+
+Then create a child class called Car that inherits from Vehicle.
+
+Extra requirement for Car:
+	•	add an attribute called doors
+	•	add a method called honk() that prints "Beep beep!"
+
+After writing the classes:
+	•	create one Vehicle object
+	•	create one Car object
+	•	call the methods
+	
+Suggested file name:
+
+vehicle_inheritance.py
+
+Questions
+	1.	Which class is the parent class?
+	2.	Which class is the child class?
+	3.	What does Car inherit from Vehicle?
+	4.	What is new in the Car class?
+
+Exercise 3: Override a Method
+
+Create a parent class called Person.
+
+Requirements:
+	•	attribute: name
+	•	method: introduce() that prints
+"Hi, my name is [name]."
+
+Create a child class called Student that inherits from Person.
+
+Requirements for Student:
+	•	add an attribute called grade_level
+	•	override introduce() so it prints
+"Hi, my name is [name], and I am in grade [grade_level]."
+
+After writing the classes:
+	•	create one Person object
+	•	create one Student object
+	•	call introduce() for both
+	
+Suggested file name:
+
+person_student.py
+
+Questions
+	1.	What does it mean to override a method?
+	2.	Which version of introduce() runs for a Student object?
+	3.	Why might a programmer want to override a method?
+
+Part 5: Main Assignment
+
+Write a program that uses inheritance with a school theme.
+
+Step 1: Create a Parent Class
+
+Create a class called SchoolMember.
+
+Requirements:
+	•	attributes:
+	•	name
+	•	age
+	•	method:
+	•	display_info() prints the person’s name and age
+
+Step 2: Create Two Child Classes
+
+Create these child classes:
+
+Teacher
+Additional attribute:
+	•	subject
+
+Additional method:
+	•	teach() prints a message such as
+"Mr. Lee is teaching math."
+
+Student
+Additional attribute:
+	•	grade
+
+Additional method:
+	•	study() prints a message such as
+"Ava is studying for grade 10 classes."
+
+Step 3: Override a Method
+
+Both Teacher and Student should override display_info().
+
+Example:
+	•	Teacher version might print:
+"Teacher: Mr. Lee, Age: 35, Subject: Math"
+	•	Student version might print:
+"Student: Ava, Age: 16, Grade: 10"
+
+Step 4: Create Objects
+
+Create:
+	•	at least 1 Teacher
+	•	at least 2 Student objects
+
+Call:
+	•	display_info()
+	•	teach() for the teacher
+	•	study() for each student
+
+Suggested file name:
+
+school_members.py
+
+Part 7: Challenge Problem
+
+Create another child class called Principal that also inherits from SchoolMember.
+
+Requirements:
+	•	extra attribute: years_experience
+	•	method: lead() that prints a leadership message
+	•	override display_info()
+
+Example:
+Principal: Dr. Brown, Age: 50, Experience: 22 years
+
+You may save this in:
+
+principal_extension.py
+
+Commit it to your Git repository when finished.
+
+Submission Instructions
+
+Submit:
+	1.	Your written answers in your existing Git repository
+	2.	Your Python files in your existing Git repository
+	3.	Evidence of commits from your repository
+
+
