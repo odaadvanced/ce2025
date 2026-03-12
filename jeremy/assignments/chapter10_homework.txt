@@ -14,10 +14,10 @@ mkdir inheritance_assignment
 Example:Part 2: Warm-Up Questions
 
 Answer these questions.
-	1.	What is the difference between a class and an object?
-	2.	Why is inheritance useful in programming?
-	3.	What does self mean inside a Python class?
-	4.	What happens when a child class inherits from a parent class?
+	1.	What is the difference between a class and an object? a class is like a catagory an object is variables defined with classes
+	2.	Why is inheritance useful in programming? when classes need similar methods to another class
+	3.	What does self mean inside a Python class? self is basically a variable that we dont know the name
+	4.	What happens when a child class inherits from a parent class? the child class gets all methods from the parent class
 Part 3: Read the Example
 
 Study this program.
@@ -43,12 +43,12 @@ pet2.speak()
 pet2.fetch()
 
 Questions
-	1.	What is the name of the parent class?
-	2.	What is the name of the child class?
-	3.	Which attributes does Dog inherit from Animal?
-	4.	Which method does Dog inherit from Animal?
-	5.	Which method belongs only to Dog?
-	6.	What will the program print?
+	1.	What is the name of the parent class? Animal
+	2.	What is the name of the child class? Dog
+	3.	Which attributes does Dog inherit from Animal? name and sound
+	4.	Which method does Dog inherit from Animal? __init__ and speak methods
+	5.	Which method belongs only to Dog? fetch
+	6.	What will the program print? "Creature says ???" "Buddy says Woof" "Buddy is fetching a ball."
 	
 Part 4: Coding Practice
 
@@ -107,10 +107,10 @@ Suggested file name:
 vehicle_inheritance.py
 
 Questions
-	1.	Which class is the parent class?
-	2.	Which class is the child class?
-	3.	What does Car inherit from Vehicle?
-	4.	What is new in the Car class?
+	1.	Which class is the parent class? Vehicle
+	2.	Which class is the child class? Car
+	3.	What does Car inherit from Vehicle? show_info() method
+	4.	What is new in the Car class? doors attribute and honk() method
 
 Exercise 3: Override a Method
 
@@ -138,9 +138,9 @@ Suggested file name:
 person_student.py
 
 Questions
-	1.	What does it mean to override a method?
-	2.	Which version of introduce() runs for a Student object?
-	3.	Why might a programmer want to override a method?
+	1.	What does it mean to override a method? replace the code
+	2.	Which version of introduce() runs for a Student object? the one that prints both name and grade
+	3.	Why might a programmer want to override a method? if changes need to happen for certain child classes
 
 Part 5: Main Assignment
 
