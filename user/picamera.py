@@ -1,3 +1,6 @@
+#sudo apt update
+#sudo apt install -y python3-picamera2
+
 from picamera2 import Picamera2
 import time
 
