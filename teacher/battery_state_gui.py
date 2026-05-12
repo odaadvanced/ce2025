@@ -16,7 +16,7 @@ battery_percentage_out = ''
 
 def battery_percentage_handler(battery_percentage):
     global battery_percentage_out
-    battery_percentage_out = batter_battery_percentage
+    battery_percentage_out = battery_percentage
  
 
 
