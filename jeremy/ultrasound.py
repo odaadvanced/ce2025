@@ -24,8 +24,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(Buzzer, GPIO.OUT)
 global Buzz
 Buzz = GPIO.PWM(Buzzer, 440)
-right_trigger = 20
-right_echo = 21
+right_trigger = 25
+right_echo = 12
 left_trigger = 23
 left_echo = 24
 

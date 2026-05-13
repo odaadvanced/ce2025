@@ -5,7 +5,7 @@ import adafruit_dht
 
 tts = TTS(engine="espeak")
 tts.lang("en-US")
-dhtDevice = adafruit_dht.DHT11(board.D17)
+dhtDevice = adafruit_dht.DHT11(board.D5)
 
 while True:
     try:
