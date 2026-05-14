@@ -96,7 +96,7 @@ async def main():
         await asyncio.sleep(.05)
         
         # Print
-        print('Measurements are {0} cm right and {1} cm left'.format(dist_r, dist_l))
+        #print('Measurements are {0} cm right and {1} cm left'.format(dist_r, dist_l))
         
         # Cool visual stuff
         if dist_r >= 200 or dist_l >= 200:
@@ -112,7 +112,7 @@ async def main():
                 await rvr.raw_motors(2,125,1,125)
                 dist_r = distance_right()
                 await asyncio.sleep(.05)
-                print('turning right')
+                #print('turning right')
                 await rvr.led_control.set_all_leds_rgb(red=255, green=0, blue=0)
             await rvr.reset_yaw()
         elif dist_l < 35:
@@ -120,7 +120,7 @@ async def main():
                 await rvr.raw_motors(1,125,2,125)
                 dist_l = distance_left()
                 await asyncio.sleep(.05)
-                print('turning left')
+                #print('turning left')
                 await rvr.led_control.set_all_leds_rgb(red=255, green=0, blue=0)
             await rvr.reset_yaw()
         elif dist_l >= 35 and dist_r >= 35:
@@ -173,6 +173,7 @@ try:
             main()
             )
         )
+    
 # Destroy EVERYTHING!!!
 except KeyboardInterrupt:
     print('Program ended by KeyboardInterrupt')
